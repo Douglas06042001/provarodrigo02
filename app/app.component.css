@@ -1,0 +1,11 @@
+table{
+    border-style: solid;
+    border-collapse: collapse;
+}
+#resultado{
+    border-style: solid;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    border-collapse: separate   ;
+    
+}

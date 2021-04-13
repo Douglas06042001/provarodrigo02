@@ -1,0 +1,47 @@
+<h1>Meu dicionario de ingles </h1>
+
+<form #userForm="ngForm" (ngSubmit)="saveData(userForm)">
+
+  <div class="GRID-1">
+
+    <label for="palavra">Palavra:</label>
+    <input type="palavra" id="palavra" name="palavra" required [(ngModel)]="dicionario.palavra" #palavra="ngModel"
+      minlength="1">
+
+
+
+    <div *ngIf="palavra.invalid && (palavra.dirty || palavra.touched)">
+      <p *ngIf="palavra.errors.required"> Campo Obrigatorio</p>
+    </div>
+
+    <div>
+      <label for="significado">Significado:</label>
+      <input type="significado" id="significado" name="significado" required [(ngModel)]="dicionario.significado"
+        #significado="ngModel" minlength="1">
+
+      <div *ngIf="significado.invalid && (significado.dirty || significado.touched)">
+        <p *ngIf="significado.errors.required"> Campo Obrigatorio</p>
+      </div>
+      
+        <input type="submit" value="Salvar" [disabled]="userForm.invalid">
+
+         
+
+    </div>
+
+  </div>
+
+</form>
+
+
+<div *ngIf="dicionarios.length > 0">
+
+  <div id="resultado" *ngFor="let dic of dicionarios">
+    <p>Palavra: {{ dic.palavra}}</p>
+    <p>Significado: {{ dic.significado}}</p>
+  </div>
+
+  
+
+</div>
+
